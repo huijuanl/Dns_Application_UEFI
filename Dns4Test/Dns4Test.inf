@@ -1,0 +1,41 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = Dns4Test
+  FILE_GUID                      = 122AC627-E272-4130-A72E-14899555B449
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+#  EDK_RELEASE_VERSION            = 0x00020000
+#  EFI_SPECIFICATION_VERSION      = 0x00020000
+
+  ENTRY_POINT                    = Dns4TestMain
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF
+#
+
+[Sources]
+  Dns4Test.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  UefiBootServicesTableLib
+  UefiApplicationEntryPoint
+  BaseMemoryLib
+  MemoryAllocationLib
+  DebugLib
+  NetLib
+
+[Protocols]
+  gEfiDns4ServiceBindingProtocolGuid            # PROTOCOL ALWAYS_CONSUMED  
+  gEfiDns4ProtocolGuid                          # PROTOCOL ALWAYS_CONSUMED
+
+[BuildOptions.common]
+
+ *_*_*_CC_FLAGS = /Od /GL-
